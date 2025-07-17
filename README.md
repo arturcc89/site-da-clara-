@@ -61,54 +61,45 @@
 
   <header>
     <h1>Para Jasmim</h1>
-    <p>Você é uma flor que floresce mesmo em dias nublados</p>
+    <p>Entre tudo que não posso dizer, deixo isso aqui</p>
   </header>
 
   <section>
-    <h2>Um poema para uma amiga única</h2>
-    <p>Jasmim não é só nome de flor,<br>
-    É presença que traz calor.</p>
+    <h2>Um sentimento guardado</h2>
+    <p>Talvez não seja só amizade,<br>
+    Talvez seja mais — e ainda assim, silêncio.</p>
 
-    <p>É riso que preenche espaço,<br>
-    É abraço, mesmo de longe, no laço.</p>
+    <p>Você é a lembrança que sorri por dentro,<br>
+    E o espaço que não sei preencher com palavras.</p>
 
-    <p>Não é só amiga — é quem escuta,<br>
-    É calma quando a vida luta.</p>
-
-    <p>É luz suave em tarde serena,<br>
-    Que chega e resolve a cena.</p>
-
-    <p>Se um dia o mundo esquecer de ser bonito,<br>
-    Eu lembro da Jasmim — e tudo faz sentido.</p>
+    <p>Eu não te tenho, e talvez nunca tenha,<br>
+    Mas isso não me impede de sentir.</p>
   </section>
 
   <section>
-    <h2>Mais palavras pra você</h2>
-    <p>Você é tipo brisa no verão,<br>
-    Que toca de leve e acalma o coração.</p>
-
-    <p>Seu jeito é leve, mas firme também,<br>
-    Um ombro seguro, um bem que faz bem.</p>
-
-    <p>Te ter por perto é sorte escondida,<br>
-    Presente da vida, flor preferida.</p>
-
-    <p>Mesmo nos dias em que tudo pesa,<br>
-    Seu nome lembra calma e beleza.</p>
-  </section>
-
-  <section>
-    <h2>Uma coisa que eu queria te dizer</h2>
+    <h2>Coisas que eu nunca disse</h2>
     <p>Jasmim querida, mesmo que eu não esteja com você,<br>
-    eu estou escrevendo isso para tentar pelo menos te animar.<br><br>
-    Mas o que eu queria mesmo era te dar um abraço<br>
-    e não te soltar mais.<br><br>
-    Te dar tantos presentes<br>
+    estou escrevendo isso pra tentar pelo menos te animar.</p>
+
+    <p>Mas o que eu queria mesmo era te dar um abraço<br>
+    e não te soltar mais.</p>
+
+    <p>Te dar tantos presentes<br>
     que eu nem posso imaginar.</p>
   </section>
 
+  <section>
+    <h2>Se isso fosse um sonho</h2>
+    <p>Se eu tivesse escolha, te levaria pra longe do que dói,<br>
+    Construiria um lugar só com o que faz bem.</p>
+
+    <p>Mas como não posso, escrevo esse lugar com palavras,<br>
+    Só pra você saber que alguém pensa em você... sempre.</p>
+  </section>
+
   <footer>
-    Escrito com carinho por alguém que queria estar perto de você agora.
+    Um presente que você talvez nunca tenha pedido —<br>
+    mas que nasceu de tudo que ficou aqui dentro.
   </footer>
 
 </body>
