@@ -1,290 +1,267 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Motivação para Clara 💪</title>
-  <style>
-    :root {
-      --azul-escuro: #1d3557;
-      --azul-medio: #457b9d;
-      --azul-claro: #a8dadc;
-      --branco: #f1faee;
-      --verde: #06d6a0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clara — Diversão & Bem-Estar 🐰</title>
+<style>
+:root {
+  --rosa-claro: #ffc0cb;
+  --rosa-forte: #ff69b4;
+  --amarelo: #fff176;
+  --verde: #90ee90;
+  --lilas: #dda0dd;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(135deg, var(--rosa-claro), var(--lilas));
+  transition: background 3s ease;
+  overflow-x: hidden;
+}
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, var(--branco), #d9eaf5);
-      color: var(--azul-escuro);
-      transition: background 1s ease;
-    }
+header {
+  text-align: center;
+  font-size: 2rem;
+  padding: 2rem;
+  color: white;
+  background: var(--rosa-forte);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
 
-    header {
-      background: linear-gradient(90deg, var(--azul-escuro), var(--azul-medio));
-      color: white;
-      text-align: center;
-      padding: 2rem;
-      font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--lilas);
+}
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      background-color: var(--azul-medio);
-      padding: 1rem;
-    }
+nav button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  background: var(--amarelo);
+  transition: transform 0.2s;
+}
 
-    nav button {
-      background: white;
-      border: none;
-      color: var(--azul-escuro);
-      padding: 0.7rem 1.4rem;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
+nav button:hover {
+  transform: scale(1.1);
+  background: var(--verde);
+}
 
-    nav button:hover {
-      background: var(--azul-claro);
-      transform: scale(1.05);
-    }
+section {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: none;
+  animation: aparecer 0.5s ease;
+  position: relative;
+}
 
-    section {
-      display: none;
-      max-width: 800px;
-      margin: 2rem auto;
-      background: white;
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      animation: fadeIn 0.6s ease;
-    }
+section.active { display: block; }
 
-    section.active {
-      display: block;
-    }
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
 
-    h2 {
-      color: var(--azul-medio);
-    }
+h2 {
+  text-align: center;
+  color: var(--rosa-forte);
+}
 
-    input, select {
-      padding: 0.6rem;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      outline: none;
-      font-size: 1rem;
-    }
+input, select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+}
 
-    button {
-      cursor: pointer;
-    }
+button.faz-tudo {
+  margin-top: 0.5rem;
+  background: var(--rosa-forte);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
 
-    .meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #f9f9f9;
-      padding: 0.5rem 1rem;
-      margin-top: 0.5rem;
-      border-radius: 10px;
-      transition: transform 0.2s;
-    }
+button.faz-tudo:hover {
+  transform: scale(1.1);
+  background: var(--verde);
+}
 
-    .meta:hover {
-      transform: translateX(3px);
-    }
+.meta, .mensagem, .humor {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: 15px;
+  background: var(--amarelo);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
 
-    .concluir {
-      background: var(--verde);
-      border: none;
-      color: white;
-      border-radius: 10px;
-      padding: 0.4rem 0.7rem;
-      font-weight: bold;
-    }
+.concluir {
+  background: var(--rosa-forte);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0.2rem 0.6rem;
+}
 
-    .motivacao {
-      margin-top: 1rem;
-      background: var(--azul-claro);
-      padding: 1rem;
-      border-radius: 10px;
-      text-align: center;
-      font-weight: 500;
-      font-size: 1.1rem;
-    }
+.celebracao {
+  text-align: center;
+  font-size: 2rem;
+  display: none;
+  margin-top: 1rem;
+}
 
-    .celebracao {
-      display: none;
-      text-align: center;
-      font-size: 1.8rem;
-      color: var(--verde);
-      margin-top: 1rem;
-    }
+.mascote {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 3rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    canvas {
-      width: 100%;
-      max-width: 600px;
-      height: 200px;
-      background: #f5f9fc;
-      border-radius: 10px;
-      margin-top: 1rem;
-    }
-  </style>
+.mascote:hover {
+  transform: scale(1.3) rotate(-15deg);
+}
+</style>
 </head>
 <body>
-  <header>💼 Site Motivacional da Clara</header>
 
-  <nav>
-    <button onclick="mostrarSecao('estudos')">Estudos</button>
-    <button onclick="mostrarSecao('apoio')">Apoio</button>
-    <button onclick="mostrarSecao('humor')">Humor</button>
-  </nav>
+<header>🎀 Clara — Diversão & Bem-Estar 🐰</header>
 
-  <!-- SEÇÃO ESTUDOS -->
-  <section id="estudos" class="active">
-    <h2>📘 Foco nos Estudos</h2>
-    <p>Crie suas metas e comemore cada conquista, Clara!</p>
-    <input type="text" id="novaMeta" placeholder="Digite sua meta...">
-    <button onclick="adicionarMeta()">Adicionar</button>
-    <div id="listaMetas"></div>
-    <div class="celebracao" id="celebracao">🎉 Parabéns, Clara! Você está brilhando! 🌟</div>
-  </section>
+<nav>
+  <button onclick="mostrar('estudos')">Estudos</button>
+  <button onclick="mostrar('mensagens')">Mensagens</button>
+  <button onclick="mostrar('humor')">Humor</button>
+</nav>
 
-  <!-- SEÇÃO APOIO -->
-  <section id="apoio">
-    <h2>💖 Palavras de Apoio</h2>
-    <div class="motivacao" id="mensagemMotivacional"></div>
-    <button onclick="novaMensagem()">Nova mensagem 💬</button>
-  </section>
+<!-- ESTUDOS -->
+<section id="estudos" class="active">
+  <h2>📚 Metinhas Divertidas</h2>
+  <input type="text" id="novaMeta" placeholder="Ex: Estudar 20 min 💖">
+  <button class="faz-tudo" onclick="adicionarMeta()">Adicionar meta</button>
+  <div id="listaMetas"></div>
+  <div class="celebracao" id="celebracao">🎉 Uhul! Concluído! 🌟</div>
+</section>
 
-  <!-- SEÇÃO HUMOR -->
-  <section id="humor">
-    <h2>😊 Como você está hoje?</h2>
-    <select id="humorHoje">
-      <option value="">Escolha...</option>
-      <option value="feliz">Feliz 😄</option>
-      <option value="ok">Mais ou menos 🙂</option>
-      <option value="triste">Triste 😢</option>
-    </select>
-    <button onclick="registrarHumor()">Salvar</button>
-    <div id="resultadoHumor"></div>
-    <canvas id="graficoHumor"></canvas>
-  </section>
+<!-- MENSAGENS -->
+<section id="mensagens">
+  <h2>💌 Mensagens Fofas</h2>
+  <div class="mensagem" id="msgFofa"></div>
+  <button class="faz-tudo" onclick="novaMensagem()">Nova mensagem 💖</button>
+</section>
 
-  <audio id="somCelebracao" src="https://cdn.pixabay.com/audio/2022/03/15/audio_1d7e0b1c54.mp3"></audio>
+<!-- HUMOR -->
+<section id="humor">
+  <h2>😊 Como você está?</h2>
+  <select id="humorHoje">
+    <option value="">Escolha...</option>
+    <option value="feliz">Feliz 😄</option>
+    <option value="ok">Mais ou menos 🙂</option>
+    <option value="triste">Triste 😢</option>
+  </select>
+  <button class="faz-tudo" onclick="registrarHumor()">Salvar</button>
+  <div class="humor" id="resultadoHumor"></div>
+</section>
 
-  <script>
-    function mostrarSecao(id) {
-      document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-    }
+<div class="mascote" id="mascote">🐰</div>
 
-    // === Metas ===
-    function adicionarMeta() {
-      const metaTexto = document.getElementById('novaMeta').value.trim();
-      if (!metaTexto) return;
-      const lista = document.getElementById('listaMetas');
-      const div = document.createElement('div');
-      div.className = 'meta';
-      div.innerHTML = `${metaTexto} <button class="concluir" onclick="concluirMeta(this)">✔</button>`;
-      lista.appendChild(div);
-      document.getElementById('novaMeta').value = '';
-    }
+<script>
+function mostrar(secao) {
+  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+  document.getElementById(secao).classList.add("active");
+}
 
-    function concluirMeta(botao) {
-      botao.parentElement.remove();
-      const celebracao = document.getElementById('celebracao');
-      celebracao.style.display = 'block';
-      document.getElementById('somCelebracao').play();
-      confete();
-      setTimeout(() => celebracao.style.display = 'none', 3000);
-    }
+// --- METAS ---
+function adicionarMeta() {
+  const meta = document.getElementById('novaMeta').value.trim();
+  if(!meta) return;
+  const div = document.createElement('div');
+  div.className = 'meta';
+  div.innerHTML = `${meta} <button class="concluir" onclick="concluirMeta(this)">✔</button>`;
+  document.getElementById('listaMetas').appendChild(div);
+  document.getElementById('novaMeta').value = '';
+}
 
-    // === Mensagens motivacionais ===
-    const mensagens = [
-      "Você é uma força imparável, Clara!",
-      "Cada meta cumprida é uma vitória do seu esforço 💪",
-      "Você está crescendo todos os dias, mesmo quando não percebe!",
-      "Acredite em você — é aí que tudo começa!",
-      "Orgulhe-se do seu progresso, Clara 🌟"
-    ];
+function concluirMeta(botao) {
+  botao.parentElement.remove();
+  const c = document.getElementById('celebracao');
+  c.style.display = 'block';
+  confete();
+  boostPositividade();
+  setTimeout(()=>c.style.display='none',2000);
+}
 
-    function novaMensagem() {
-      const msg = mensagens[Math.floor(Math.random() * mensagens.length)];
-      document.getElementById('mensagemMotivacional').innerText = msg;
-    }
+// --- MENSAGENS FOFA ---
+const mensagens = [
+  "Você é incrível, Clara! 🌸",
+  "Cada passo seu é uma vitória 💖",
+  "Continue sorrindo! 😄",
+  "O mundo fica melhor com você 💕",
+  "Você merece todo amor e alegria 🌟"
+];
 
-    novaMensagem();
-    setInterval(novaMensagem, 15000); // muda automaticamente a cada 15s
+function novaMensagem() {
+  const msg = mensagens[Math.floor(Math.random()*mensagens.length)];
+  document.getElementById('msgFofa').innerText = msg;
+}
 
-    // === Humor + gráfico ===
-    let historicoHumor = [];
+// --- HUMOR ---
+function registrarHumor() {
+  const humor = document.getElementById('humorHoje').value;
+  let msg = "";
+  if(humor==="feliz") msg="Que ótimo ver você sorrindo! 😄";
+  else if(humor==="ok") msg="Está tudo bem ter dias assim 🙂";
+  else if(humor==="triste") msg="Tudo bem se sentir triste às vezes ❤️";
+  document.getElementById('resultadoHumor').innerText = msg;
+}
 
-    function registrarHumor() {
-      const humor = document.getElementById('humorHoje').value;
-      if (!humor) return;
-      historicoHumor.push(humor);
-      desenharGrafico();
-      let msg = "";
-      if (humor === "feliz") msg = "Que bom te ver sorrindo! Continue espalhando essa energia ✨";
-      else if (humor === "ok") msg = "Tudo bem ter dias neutros. Você está indo bem 💪";
-      else msg = "Você é forte, Clara. Dias ruins passam, mas você fica 💖";
-      document.getElementById('resultadoHumor').innerText = msg;
-    }
+// --- CONFETE ---
+function confete(){
+  for(let i=0;i<50;i++){
+    const c=document.createElement('div');
+    c.style.position='fixed';
+    c.style.width='10px';
+    c.style.height='10px';
+    c.style.background=`hsl(${Math.random()*360},80%,60%)`;
+    c.style.top='0px';
+    c.style.left=Math.random()*window.innerWidth+'px';
+    c.style.borderRadius='50%';
+    document.body.appendChild(c);
+    const anim=c.animate([{transform:'translateY(0) rotate(0deg)',opacity:1},{transform:`translateY(${window.innerHeight}px) rotate(720deg)`,opacity:0}],{duration:2000+Math.random()*2000,easing:'ease-out'});
+    anim.onfinish=()=>c.remove();
+  }
+}
 
-    function desenharGrafico() {
-      const ctx = document.getElementById('graficoHumor').getContext('2d');
-      ctx.clearRect(0, 0, 600, 200);
-      ctx.beginPath();
-      ctx.moveTo(10, 180);
-      historicoHumor.forEach((h, i) => {
-        let y = h === "feliz" ? 60 : h === "ok" ? 120 : 180;
-        ctx.lineTo(10 + i * 60, y);
-      });
-      ctx.strokeStyle = "#457b9d";
-      ctx.lineWidth = 3;
-      ctx.stroke();
-    }
+// --- BOOST DE POSITIVIDADE ---
+function boostPositividade(){
+  document.body.style.background = `linear-gradient(135deg, hsl(${Math.random()*360},70%,80%), hsl(${Math.random()*360},70%,85%))`;
+}
 
-    // === Confete ===
-    function confete() {
-      const total = 60;
-      for (let i = 0; i < total; i++) {
-        const conf = document.createElement('div');
-        conf.style.position = 'fixed';
-        conf.style.width = '10px';
-        conf.style.height = '10px';
-        conf.style.background = `hsl(${Math.random() * 360}, 80%, 60%)`;
-        conf.style.top = '0px';
-        conf.style.left = Math.random() * window.innerWidth + 'px';
-        conf.style.borderRadius = '50%';
-        conf.style.opacity = '0.9';
-        document.body.appendChild(conf);
+// --- MASCOTE INTERATIVO ---
+const mascote = document.getElementById('mascote');
+mas
 
-        const anim = conf.animate([
-          { transform: `translateY(0) rotate(0deg)`, opacity: 1 },
-          { transform: `translateY(${window.innerHeight}px) rotate(720deg)`, opacity: 0 }
-        ], { duration: 2000 + Math.random() * 2000, easing: 'ease-out' });
-
-        anim.onfinish = () => conf.remove();
-      }
-    }
   </script>
 </body>
 </html>
