@@ -1,155 +1,292 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Clara — Motivação & Apoio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motivação para Clara 💪</title>
   <style>
-    :root{--bg:#0f1724;--card:#0b1220;--accent:#7c3aed;--muted:#9aa4b2;--glass:rgba(255,255,255,0.03)}
-    *{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial}
-    body{margin:0;background:linear-gradient(180deg,#071024 0%, #0f1724 100%);color:#e6eef6;min-height:100vh;overflow-x:hidden}
-    header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid rgba(255,255,255,0.03)}
-    h1{font-size:18px;margin:0}
-    nav a{color:var(--muted);margin-left:14px;text-decoration:none;font-size:14px}
-    .container{max-width:980px;margin:28px auto;padding:20px}
-    .grid{display:grid;grid-template-columns:1fr 340px;gap:20px}
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
-    section h2{margin-top:0}
-    .section{margin-bottom:18px}
-    .quotes{font-style:italic;color:#dfe9ff;padding:12px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
-    .goals-list{list-style:none;padding:0;margin:12px 0}
-    .goals-list li{display:flex;align-items:center;justify-content:space-between;padding:8px;border-radius:8px;background:var(--glass);margin-bottom:8px}
-    .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;border:none;cursor:pointer;transition:transform 0.15s ease}
-    .btn:hover{transform:scale(1.05)}
-    .muted{color:var(--muted);font-size:14px}
-    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
-    .small{font-size:13px}
-    .widget{margin-bottom:14px}
-    .timer-display{font-size:28px;font-weight:700;text-align:center;padding:14px}
-    footer{padding:18px;text-align:center;color:var(--muted);font-size:13px}
-    @media(max-width:880px){.grid{grid-template-columns:1fr} .container{padding:12px}}
-    .emoji-display{font-size:48px;text-align:center;margin-top:10px}
-    .confetti{position:fixed;animation:fall 2.5s ease-out forwards}
-    @keyframes fall{0%{opacity:1;transform:translateY(0) rotate(0deg)}100%{opacity:0;transform:translateY(400px) rotate(720deg)}}
+    :root {
+      --azul-escuro: #1d3557;
+      --azul-medio: #457b9d;
+      --azul-claro: #a8dadc;
+      --branco: #f1faee;
+      --verde: #06d6a0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, var(--branco), #d9eaf5);
+      color: var(--azul-escuro);
+      transition: background 1s ease;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--azul-escuro), var(--azul-medio));
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: var(--azul-medio);
+      padding: 1rem;
+    }
+
+    nav button {
+      background: white;
+      border: none;
+      color: var(--azul-escuro);
+      padding: 0.7rem 1.4rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    nav button:hover {
+      background: var(--azul-claro);
+      transform: scale(1.05);
+    }
+
+    section {
+      display: none;
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeIn 0.6s ease;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h2 {
+      color: var(--azul-medio);
+    }
+
+    input, select {
+      padding: 0.6rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f9f9f9;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      border-radius: 10px;
+      transition: transform 0.2s;
+    }
+
+    .meta:hover {
+      transform: translateX(3px);
+    }
+
+    .concluir {
+      background: var(--verde);
+      border: none;
+      color: white;
+      border-radius: 10px;
+      padding: 0.4rem 0.7rem;
+      font-weight: bold;
+    }
+
+    .motivacao {
+      margin-top: 1rem;
+      background: var(--azul-claro);
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .celebracao {
+      display: none;
+      text-align: center;
+      font-size: 1.8rem;
+      color: var(--verde);
+      margin-top: 1rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    canvas {
+      width: 100%;
+      max-width: 600px;
+      height: 200px;
+      background: #f5f9fc;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Clara — Motivação & Apoio</h1>
-    <nav>
-      <a href="#estudos">Estudos</a>
-      <a href="#apoio">Apoio</a>
-      <a href="#metas">Metas</a>
-    </nav>
-  </header>
+  <header>💼 Site Motivacional da Clara</header>
 
-  <main class="container">
-    <div class="grid">
-      <div>
-        <section id="estudos" class="card section">
-          <h2>📚 Estudos — Plano e Foco</h2>
-          <p class="muted">Cronograma simples, timer Pomodoro e recursos rápidos para ajudar a Clara a manter o foco.</p>
-          <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
-            <button class="btn" id="startPom">Iniciar Pomodoro (25min)</button>
-            <button class="btn" id="stopPom" style="background:#334155">Parar</button>
-            <button class="btn" id="shortBreak">Pausa Curta</button>
-            <button class="btn" id="longBreak">Pausa Longa</button>
-          </div>
-          <div class="timer-display card" id="timer">25:00</div>
-        </section>
+  <nav>
+    <button onclick="mostrarSecao('estudos')">Estudos</button>
+    <button onclick="mostrarSecao('apoio')">Apoio</button>
+    <button onclick="mostrarSecao('humor')">Humor</button>
+  </nav>
 
-        <section id="apoio" class="card section">
-          <h2>💗 Apoio — Mensagens & Motivação</h2>
-          <textarea id="msgInput" rows="3" placeholder="Escreva uma mensagem para a Clara..."></textarea>
-          <div style="display:flex;gap:8px;margin-top:8px">
-            <button class="btn" id="saveMsg">Salvar mensagem</button>
-            <button class="btn" id="clearMsgs" style="background:#334155">Limpar</button>
-          </div>
-          <h3 class="small" style="margin-top:12px">Mensagens salvas</h3>
-          <ul id="msgs" class="muted"></ul>
-          <h3 class="small" style="margin-top:12px">Frase do dia</h3>
-          <div class="quotes" id="quote">Acredite no seu potencial — mesmo que hoje pareça difícil.</div>
-        </section>
+  <!-- SEÇÃO ESTUDOS -->
+  <section id="estudos" class="active">
+    <h2>📘 Foco nos Estudos</h2>
+    <p>Crie suas metas e comemore cada conquista, Clara!</p>
+    <input type="text" id="novaMeta" placeholder="Digite sua meta...">
+    <button onclick="adicionarMeta()">Adicionar</button>
+    <div id="listaMetas"></div>
+    <div class="celebracao" id="celebracao">🎉 Parabéns, Clara! Você está brilhando! 🌟</div>
+  </section>
 
-        <section id="metas" class="card section">
-          <h2>🎯 Metas & Progresso</h2>
-          <input id="newGoal" placeholder="Nova meta — Ex: Estudar Biologia 1h" />
-          <button class="btn" id="addGoal">Adicionar</button>
-          <ul class="goals-list" id="goals"></ul>
-        </section>
-      </div>
+  <!-- SEÇÃO APOIO -->
+  <section id="apoio">
+    <h2>💖 Palavras de Apoio</h2>
+    <div class="motivacao" id="mensagemMotivacional"></div>
+    <button onclick="novaMensagem()">Nova mensagem 💬</button>
+  </section>
 
-      <aside>
-        <div class="card widget">
-          <h3>Resumo Rápido</h3>
-          <div class="muted small" id="summary">Nenhuma meta adicionada ainda.</div>
-        </div>
+  <!-- SEÇÃO HUMOR -->
+  <section id="humor">
+    <h2>😊 Como você está hoje?</h2>
+    <select id="humorHoje">
+      <option value="">Escolha...</option>
+      <option value="feliz">Feliz 😄</option>
+      <option value="ok">Mais ou menos 🙂</option>
+      <option value="triste">Triste 😢</option>
+    </select>
+    <button onclick="registrarHumor()">Salvar</button>
+    <div id="resultadoHumor"></div>
+    <canvas id="graficoHumor"></canvas>
+  </section>
 
-        <div class="card widget">
-          <h3>Check-in de Humor</h3>
-          <select id="mood">
-            <option value="5">😊 Muito bem</option>
-            <option value="4">🙂 Bem</option>
-            <option value="3">😐 Normal</option>
-            <option value="2">😕 Estressada</option>
-            <option value="1">😢 Triste</option>
-          </select>
-          <div style="margin-top:10px"><button class="btn" id="saveMood">Salvar humor</button></div>
-          <div class="emoji-display" id="moodEmoji">🙂</div>
-          <div class="muted small" id="moodSaved"></div>
-          <p class="muted small" id="moodMessage">Lembre-se: todos os sentimentos são válidos. Respire fundo e siga em frente, Clara!</p>
-        </div>
-
-        <div class="card widget">
-          <h3>Pequena celebração</h3>
-          <p class="muted small">Concluiu algo importante? Clique e comemore com brilho e música!</p>
-          <button class="btn" id="celebrate">Celebrar 🎉</button>
-          <audio id="celebrateSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_b7f33e3c65.mp3"></audio>
-        </div>
-      </aside>
-    </div>
-
-    <footer class="card" style="margin-top:18px">
-      <div><strong>Para Clara</strong> — você é mais forte do que imagina. ❤️<br><span class="muted">Editável: personalize mensagens, metas e o cronograma.</span></div>
-    </footer>
-  </main>
+  <audio id="somCelebracao" src="https://cdn.pixabay.com/audio/2022/03/15/audio_1d7e0b1c54.mp3"></audio>
 
   <script>
-    const $ = id => document.getElementById(id);
+    function mostrarSecao(id) {
+      document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
 
-    function loadMsgs(){const msgs=JSON.parse(localStorage.getItem('clara_msgs')||'[]');const $msgs=$('msgs');$msgs.innerHTML='';msgs.forEach(m=>{const li=document.createElement('li');li.textContent=m;$msgs.appendChild(li);});}
-    $('saveMsg').addEventListener('click',()=>{const t=$('msgInput').value.trim();if(!t)return alert('Escreva algo!');const msgs=JSON.parse(localStorage.getItem('clara_msgs')||'[]');msgs.unshift(t);localStorage.setItem('clara_msgs',JSON.stringify(msgs));$('msgInput').value='';loadMsgs();});
-    $('clearMsgs').addEventListener('click',()=>{if(confirm('Limpar todas?')){localStorage.removeItem('clara_msgs');loadMsgs();}});
-    loadMsgs();
+    // === Metas ===
+    function adicionarMeta() {
+      const metaTexto = document.getElementById('novaMeta').value.trim();
+      if (!metaTexto) return;
+      const lista = document.getElementById('listaMetas');
+      const div = document.createElement('div');
+      div.className = 'meta';
+      div.innerHTML = `${metaTexto} <button class="concluir" onclick="concluirMeta(this)">✔</button>`;
+      lista.appendChild(div);
+      document.getElementById('novaMeta').value = '';
+    }
 
-    function renderGoals(){const goals=JSON.parse(localStorage.getItem('clara_goals')||'[]');const $goals=$('goals');$goals.innerHTML='';$('summary').textContent=goals.length?`${goals.length} meta(s)`:'Nenhuma meta.';goals.forEach((g,i)=>{const li=document.createElement('li');li.innerHTML=`<input type=checkbox ${g.done?'checked':''} data-i=${i}/> ${g.text}`;$goals.appendChild(li);});}
-    $('addGoal').addEventListener('click',()=>{const t=$('newGoal').value.trim();if(!t)return;const goals=JSON.parse(localStorage.getItem('clara_goals')||'[]');goals.push({text:t,done:false});localStorage.setItem('clara_goals',JSON.stringify(goals));$('newGoal').value='';renderGoals();});
-    renderGoals();
+    function concluirMeta(botao) {
+      botao.parentElement.remove();
+      const celebracao = document.getElementById('celebracao');
+      celebracao.style.display = 'block';
+      document.getElementById('somCelebracao').play();
+      confete();
+      setTimeout(() => celebracao.style.display = 'none', 3000);
+    }
 
-    $('saveMood').addEventListener('click',()=>{const val=$('mood').value;localStorage.setItem('clara_mood',val);const emojiMap={1:'😢',2:'😕',3:'😐',4:'🙂',5:'😊'};const msgMap={1:'Tudo bem ficar triste. Tire um tempo pra cuidar de você ❤️',2:'Vai passar, Clara! Faça algo leve e respire fundo 🌸',3:'Dias neutros também contam. Continue firme 💪',4:'Continue assim! Você está indo muito bem ✨',5:'Espalhe essa alegria, ela é contagiante 🌈'};$('moodEmoji').textContent=emojiMap[val];$('moodMessage').textContent=msgMap[val];$('moodSaved').textContent='Humor salvo!';setTimeout(()=>$('moodSaved').textContent='',2000);});
+    // === Mensagens motivacionais ===
+    const mensagens = [
+      "Você é uma força imparável, Clara!",
+      "Cada meta cumprida é uma vitória do seu esforço 💪",
+      "Você está crescendo todos os dias, mesmo quando não percebe!",
+      "Acredite em você — é aí que tudo começa!",
+      "Orgulhe-se do seu progresso, Clara 🌟"
+    ];
 
-    const quotes=['Acredite no seu potencial — mesmo que hoje pareça difícil.','Pequenos passos, grandes conquistas. Você consegue, Clara!','Estudar com carinho é cuidar do seu futuro.','Falhar faz parte. Tente de novo — você está aprendendo.'];
-    $('quote').textContent=quotes[Math.floor(Math.random()*quotes.length)];
+    function novaMensagem() {
+      const msg = mensagens[Math.floor(Math.random() * mensagens.length)];
+      document.getElementById('mensagemMotivacional').innerText = msg;
+    }
 
-    $('celebrate').addEventListener('click',()=>{
-      const sound=$('celebrateSound');sound.currentTime=0;sound.play();
-      for(let i=0;i<80;i++){
-        const el=document.createElement('div');
-        el.textContent=['🎉','✨','💖','🌟'][Math.floor(Math.random()*4)];
-        el.className='confetti';
-        el.style.left=Math.random()*window.innerWidth+'px';
-        el.style.top='-20px';
-        el.style.fontSize=(16+Math.random()*20)+'px';
-        el.style.color='hsl('+Math.random()*360+',80%,70%)';
-        document.body.appendChild(el);
-        setTimeout(()=>el.remove(),2500);
+    novaMensagem();
+    setInterval(novaMensagem, 15000); // muda automaticamente a cada 15s
+
+    // === Humor + gráfico ===
+    let historicoHumor = [];
+
+    function registrarHumor() {
+      const humor = document.getElementById('humorHoje').value;
+      if (!humor) return;
+      historicoHumor.push(humor);
+      desenharGrafico();
+      let msg = "";
+      if (humor === "feliz") msg = "Que bom te ver sorrindo! Continue espalhando essa energia ✨";
+      else if (humor === "ok") msg = "Tudo bem ter dias neutros. Você está indo bem 💪";
+      else msg = "Você é forte, Clara. Dias ruins passam, mas você fica 💖";
+      document.getElementById('resultadoHumor').innerText = msg;
+    }
+
+    function desenharGrafico() {
+      const ctx = document.getElementById('graficoHumor').getContext('2d');
+      ctx.clearRect(0, 0, 600, 200);
+      ctx.beginPath();
+      ctx.moveTo(10, 180);
+      historicoHumor.forEach((h, i) => {
+        let y = h === "feliz" ? 60 : h === "ok" ? 120 : 180;
+        ctx.lineTo(10 + i * 60, y);
+      });
+      ctx.strokeStyle = "#457b9d";
+      ctx.lineWidth = 3;
+      ctx.stroke();
+    }
+
+    // === Confete ===
+    function confete() {
+      const total = 60;
+      for (let i = 0; i < total; i++) {
+        const conf = document.createElement('div');
+        conf.style.position = 'fixed';
+        conf.style.width = '10px';
+        conf.style.height = '10px';
+        conf.style.background = `hsl(${Math.random() * 360}, 80%, 60%)`;
+        conf.style.top = '0px';
+        conf.style.left = Math.random() * window.innerWidth + 'px';
+        conf.style.borderRadius = '50%';
+        conf.style.opacity = '0.9';
+        document.body.appendChild(conf);
+
+        const anim = conf.animate([
+          { transform: `translateY(0) rotate(0deg)`, opacity: 1 },
+          { transform: `translateY(${window.innerHeight}px) rotate(720deg)`, opacity: 0 }
+        ], { duration: 2000 + Math.random() * 2000, easing: 'ease-out' });
+
+        anim.onfinish = () => conf.remove();
       }
-    });
-
-    let timerInterval=null,remaining=25*60;function format(t){const m=Math.floor(t/60).toString().padStart(2,'0');const s=Math.floor(t%60).toString().padStart(2,'0');return `${m}:${s}`}
-    function startTimer(sec){remaining=sec;clearInterval(timerInterval);$('timer').textContent=format(remaining);timerInterval=setInterval(()=>{remaining--;$('timer').textContent=format(remaining);if(remaining<=0){clearInterval(timerInterval);alert('Tempo encerrado!');}},1000);}
-    $('startPom').addEventListener('click',()=>startTimer(25*60));$('shortBreak').addEventListener('click',()=>startTimer(5*60));$('longBreak').addEventListener('click',()=>startTimer(15*60));$('stopPom').addEventListener('click',()=>{clearInterval(timerInterval);$('timer').textContent='25:00';});
+    }
   </script>
 </body>
 </html>
+
 
