@@ -1,269 +1,167 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clara — Diversão & Bem-Estar 🐰</title>
-<style>
-:root {
-  --rosa-claro: #ffc0cb;
-  --rosa-forte: #ff69b4;
-  --amarelo: #fff176;
-  --verde: #90ee90;
-  --lilas: #dda0dd;
-}
-
-body {
-  margin: 0;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  background: linear-gradient(135deg, var(--rosa-claro), var(--lilas));
-  transition: background 3s ease;
-  overflow-x: hidden;
-}
-
-header {
-  text-align: center;
-  font-size: 2rem;
-  padding: 2rem;
-  color: white;
-  background: var(--rosa-forte);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem;
-  background: var(--lilas);
-}
-
-nav button {
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: bold;
-  background: var(--amarelo);
-  transition: transform 0.2s;
-}
-
-nav button:hover {
-  transform: scale(1.1);
-  background: var(--verde);
-}
-
-section {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  display: none;
-  animation: aparecer 0.5s ease;
-  position: relative;
-}
-
-section.active { display: block; }
-
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(20px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-
-h2 {
-  text-align: center;
-  color: var(--rosa-forte);
-}
-
-input, select {
-  width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  outline: none;
-}
-
-button.faz-tudo {
-  margin-top: 0.5rem;
-  background: var(--rosa-forte);
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-button.faz-tudo:hover {
-  transform: scale(1.1);
-  background: var(--verde);
-}
-
-.meta, .mensagem, .humor {
-  padding: 0.5rem 1rem;
-  margin: 0.5rem 0;
-  border-radius: 15px;
-  background: var(--amarelo);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.concluir {
-  background: var(--rosa-forte);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  padding: 0.2rem 0.6rem;
-}
-
-.celebracao {
-  text-align: center;
-  font-size: 2rem;
-  display: none;
-  margin-top: 1rem;
-}
-
-.mascote {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  font-size: 3rem;
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.2s;
-}
-
-.mascote:hover {
-  transform: scale(1.3) rotate(-15deg);
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clara — Diversão & Bem-Estar</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#7c3aed;--muted:#9aa4b2;--glass:rgba(255,255,255,0.03)}
+    *{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial}
+    body{margin:0;background:linear-gradient(180deg,#071024 0%, #0f1724 100%);color:#e6eef6;min-height:100vh;overflow-x:hidden;transition:background 1s ease;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid rgba(255,255,255,0.03)}
+    h1{font-size:18px;margin:0}
+    nav a{color:var(--muted);margin-left:14px;text-decoration:none;font-size:14px;cursor:pointer}
+    .container{max-width:980px;margin:28px auto;padding:20px}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:20px}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    section h2{margin-top:0}
+    .section{margin-bottom:18px}
+    .quotes{font-style:italic;color:#dfe9ff;padding:12px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+    .goals-list{list-style:none;padding:0;margin:12px 0}
+    .goals-list li{display:flex;align-items:center;justify-content:space-between;padding:8px;border-radius:8px;background:var(--glass);margin-bottom:8px}
+    .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;border:none;cursor:pointer;transition:transform 0.15s ease}
+    .btn:hover{transform:scale(1.05)}
+    .muted{color:var(--muted);font-size:14px}
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
+    .small{font-size:13px}
+    .widget{margin-bottom:14px}
+    .timer-display{font-size:28px;font-weight:700;text-align:center;padding:14px}
+    footer{padding:18px;text-align:center;color:var(--muted);font-size:13px}
+    @media(max-width:880px){.grid{grid-template-columns:1fr} .container{padding:12px}}
+    .emoji-display{font-size:48px;text-align:center;margin-top:10px}
+    .confetti{position:fixed;animation:fall 2.5s ease-out forwards;pointer-events:none;z-index:999;}
+    @keyframes fall{0%{opacity:1;transform:translateY(0) rotate(0deg)}100%{opacity:0;transform:translateY(400px) rotate(720deg)}}
+    .mascote{position:fixed;bottom:10px;right:10px;font-size:48px;cursor:pointer;user-select:none;transition:transform 0.3s;}
+    .mascote:hover{transform:scale(1.3) rotate(-20deg);}
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Clara — Diversão & Bem-Estar 🐰</h1>
+    <nav>
+      <a onclick="scrollToSection('estudos')">Estudos</a>
+      <a onclick="scrollToSection('apoio')">Apoio</a>
+      <a onclick="scrollToSection('metas')">Metas</a>
+    </nav>
+  </header>
 
-<header>🎀 Clara — Diversão & Bem-Estar 🐰</header>
+  <main class="container">
+    <div class="grid">
+      <div>
+        <section id="estudos" class="card section">
+          <h2>📚 Estudos — Plano e Foco</h2>
+          <p class="muted">Cronograma simples, timer Pomodoro e recursos rápidos para manter o foco com diversão.</p>
+          <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+            <button class="btn" id="startPom">Iniciar Pomodoro (25min)</button>
+            <button class="btn" id="stopPom" style="background:#334155">Parar</button>
+            <button class="btn" id="shortBreak">Pausa Curta</button>
+            <button class="btn" id="longBreak">Pausa Longa</button>
+          </div>
+          <div class="timer-display card" id="timer">25:00</div>
+        </section>
 
-<nav>
-  <button onclick="mostrar('estudos')">Estudos</button>
-  <button onclick="mostrar('mensagens')">Mensagens</button>
-  <button onclick="mostrar('humor')">Humor</button>
-</nav>
+        <section id="apoio" class="card section">
+          <h2>💗 Apoio — Mensagens & Motivação</h2>
+          <textarea id="msgInput" rows="3" placeholder="Escreva uma mensagem para a Clara..."></textarea>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button class="btn" id="saveMsg">Salvar mensagem</button>
+            <button class="btn" id="clearMsgs" style="background:#334155">Limpar</button>
+          </div>
+          <h3 class="small" style="margin-top:12px">Mensagens salvas</h3>
+          <ul id="msgs" class="muted"></ul>
+          <h3 class="small" style="margin-top:12px">Frase do dia</h3>
+          <div class="quotes" id="quote">Você é incrível, Clara! 🌸</div>
+        </section>
 
-<!-- ESTUDOS -->
-<section id="estudos" class="active">
-  <h2>📚 Metinhas Divertidas</h2>
-  <input type="text" id="novaMeta" placeholder="Ex: Estudar 20 min 💖">
-  <button class="faz-tudo" onclick="adicionarMeta()">Adicionar meta</button>
-  <div id="listaMetas"></div>
-  <div class="celebracao" id="celebracao">🎉 Uhul! Concluído! 🌟</div>
-</section>
+        <section id="metas" class="card section">
+          <h2>🎯 Metas & Progresso</h2>
+          <input id="newGoal" placeholder="Nova meta — Ex: Estudar Biologia 1h" />
+          <button class="btn" id="addGoal">Adicionar</button>
+          <ul class="goals-list" id="goals"></ul>
+        </section>
+      </div>
 
-<!-- MENSAGENS -->
-<section id="mensagens">
-  <h2>💌 Mensagens Fofas</h2>
-  <div class="mensagem" id="msgFofa"></div>
-  <button class="faz-tudo" onclick="novaMensagem()">Nova mensagem 💖</button>
-</section>
+      <aside>
+        <div class="card widget">
+          <h3>Resumo Rápido</h3>
+          <div class="muted small" id="summary">Nenhuma meta adicionada ainda.</div>
+        </div>
 
-<!-- HUMOR -->
-<section id="humor">
-  <h2>😊 Como você está?</h2>
-  <select id="humorHoje">
-    <option value="">Escolha...</option>
-    <option value="feliz">Feliz 😄</option>
-    <option value="ok">Mais ou menos 🙂</option>
-    <option value="triste">Triste 😢</option>
-  </select>
-  <button class="faz-tudo" onclick="registrarHumor()">Salvar</button>
-  <div class="humor" id="resultadoHumor"></div>
-</section>
+        <div class="card widget">
+          <h3>Check-in de Humor</h3>
+          <select id="mood">
+            <option value="5">😊 Muito bem</option>
+            <option value="4">🙂 Bem</option>
+            <option value="3">😐 Normal</option>
+            <option value="2">😕 Estressada</option>
+            <option value="1">😢 Triste</option>
+          </select>
+          <div style="margin-top:10px"><button class="btn" id="saveMood">Salvar humor</button></div>
+          <div class="emoji-display" id="moodEmoji">🙂</div>
+          <div class="muted small" id="moodSaved"></div>
+          <p class="muted small" id="moodMessage">Lembre-se: todos os sentimentos são válidos. Respire fundo e siga em frente, Clara!</p>
+        </div>
 
-<div class="mascote" id="mascote">🐰</div>
+        <div class="card widget">
+          <h3>Pequena celebração</h3>
+          <p class="muted small">Concluiu algo importante? Clique e comemore com confetes fofos!</p>
+          <button class="btn" id="celebrate">Celebrar 🎉</button>
+        </div>
+      </aside>
+    </div>
 
-<script>
-function mostrar(secao) {
-  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-  document.getElementById(secao).classList.add("active");
-}
+    <div class="mascote" id="mascote">🐰</div>
 
-// --- METAS ---
-function adicionarMeta() {
-  const meta = document.getElementById('novaMeta').value.trim();
-  if(!meta) return;
-  const div = document.createElement('div');
-  div.className = 'meta';
-  div.innerHTML = `${meta} <button class="concluir" onclick="concluirMeta(this)">✔</button>`;
-  document.getElementById('listaMetas').appendChild(div);
-  document.getElementById('novaMeta').value = '';
-}
+    <footer class="card" style="margin-top:18px">
+      <div><strong>Para Clara</strong> — você é mais forte do que imagina. ❤️<br><span class="muted">Editável: personalize mensagens, metas e o cronograma.</span></div>
+    </footer>
+  </main>
 
-function concluirMeta(botao) {
-  botao.parentElement.remove();
-  const c = document.getElementById('celebracao');
-  c.style.display = 'block';
-  confete();
-  boostPositividade();
-  setTimeout(()=>c.style.display='none',2000);
-}
+  <script>
+    const $ = id => document.getElementById(id);
 
-// --- MENSAGENS FOFA ---
-const mensagens = [
-  "Você é incrível, Clara! 🌸",
-  "Cada passo seu é uma vitória 💖",
-  "Continue sorrindo! 😄",
-  "O mundo fica melhor com você 💕",
-  "Você merece todo amor e alegria 🌟"
-];
+    // --- Seções ---
+    function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
 
-function novaMensagem() {
-  const msg = mensagens[Math.floor(Math.random()*mensagens.length)];
-  document.getElementById('msgFofa').innerText = msg;
-}
+    // --- Mensagens ---
+    function loadMsgs(){const msgs=JSON.parse(localStorage.getItem('clara_msgs')||'[]');$('msgs').innerHTML='';msgs.forEach(m=>{$('msgs').innerHTML+=`<li>${m}</li>`;});}
+    $('saveMsg').addEventListener('click',()=>{const t=$('msgInput').value.trim();if(!t)return;const msgs=JSON.parse(localStorage.getItem('clara_msgs')||'[]');msgs.unshift(t);localStorage.setItem('clara_msgs',JSON.stringify(msgs));$('msgInput').value='';loadMsgs();});
+    $('clearMsgs').addEventListener('click',()=>{if(confirm('Limpar todas?')){localStorage.removeItem('clara_msgs');loadMsgs();}});
+    loadMsgs();
 
-// --- HUMOR ---
-function registrarHumor() {
-  const humor = document.getElementById('humorHoje').value;
-  let msg = "";
-  if(humor==="feliz") msg="Que ótimo ver você sorrindo! 😄";
-  else if(humor==="ok") msg="Está tudo bem ter dias assim 🙂";
-  else if(humor==="triste") msg="Tudo bem se sentir triste às vezes ❤️";
-  document.getElementById('resultadoHumor').innerText = msg;
-}
+    // --- Metas ---
+    function renderGoals(){const goals=JSON.parse(localStorage.getItem('clara_goals')||'[]');$('goals').innerHTML='';$('summary').textContent=goals.length?`${goals.length} meta(s)`:'Nenhuma meta.';goals.forEach((g,i)=>{const li=document.createElement('li');li.innerHTML=`<input type=checkbox ${g.done?'checked':''} data-i=${i}/> ${g.text}`;$('goals').appendChild(li);});}
+    $('addGoal').addEventListener('click',()=>{const t=$('newGoal').value.trim();if(!t)return;const goals=JSON.parse(localStorage.getItem('clara_goals')||'[]');goals.push({text:t,done:false});localStorage.setItem('clara_goals',JSON.stringify(goals));$('newGoal').value='';renderGoals();});
+    renderGoals();
 
-// --- CONFETE ---
-function confete(){
-  for(let i=0;i<50;i++){
-    const c=document.createElement('div');
-    c.style.position='fixed';
-    c.style.width='10px';
-    c.style.height='10px';
-    c.style.background=`hsl(${Math.random()*360},80%,60%)`;
-    c.style.top='0px';
-    c.style.left=Math.random()*window.innerWidth+'px';
-    c.style.borderRadius='50%';
-    document.body.appendChild(c);
-    const anim=c.animate([{transform:'translateY(0) rotate(0deg)',opacity:1},{transform:`translateY(${window.innerHeight}px) rotate(720deg)`,opacity:0}],{duration:2000+Math.random()*2000,easing:'ease-out'});
-    anim.onfinish=()=>c.remove();
-  }
-}
+    // --- Humor ---
+    $('saveMood').addEventListener('click',()=>{const val=$('mood').value;localStorage.setItem('clara_mood',val);const emojis={1:'😢',2:'😕',3:'😐',4:'🙂',5:'😊'};const msgs={1:'Tudo bem ficar triste. ❤️',2:'Vai passar 🌸',3:'Dias neutros também contam 💪',4:'Continue assim ✨',5:'Espalhe alegria 🌈'};$('moodEmoji').textContent=emojis[val];$('moodMessage').textContent=msgs[val];$('moodSaved').textContent='Humor salvo!';setTimeout(()=>$('moodSaved').textContent='',2000);});
 
-// --- BOOST DE POSITIVIDADE ---
-function boostPositividade(){
-  document.body.style.background = `linear-gradient(135deg, hsl(${Math.random()*360},70%,80%), hsl(${Math.random()*360},70%,85%))`;
-}
+    // --- Frases ---
+    const quotes=['Você é incrível, Clara! 🌸','Pequenos passos, grandes conquistas. 💖','Falhar faz parte, tente novamente. 🌟','Continue sorrindo! 😄'];
+    $('quote').textContent=quotes[Math.floor(Math.random()*quotes.length)];
 
-// --- MASCOTE INTERATIVO ---
-const mascote = document.getElementById('mascote');
-mas
+    // --- Celebração ---
+    $('celebrate').addEventListener('click',()=>{
+      for(let i=0;i<60;i++){
+        const c=document.createElement('div');c.textContent=['🎉','✨','💖','🌟'][Math.floor(Math.random()*4)];
+        c.className='confetti';c.style.left=Math.random()*window.innerWidth+'px';c.style.top='-20px';c.style.fontSize=(16+Math.random()*20)+'px';
+        c.style.color='hsl('+Math.random()*360+',80%,70%)';document.body.appendChild(c);setTimeout(()=>c.remove(),2500);
+      }
+      document.body.style.background=`linear-gradient(180deg,hsl(${Math.random()*360},70%,30%),hsl(${Math.random()*360},70%,40%))`;
+    });
 
+    // --- Mascote ---
+    const mascote=$('mascote');mascote.addEventListener('click',()=>{mascote.style.transform='scale(1.5) rotate(15deg)';setTimeout(()=>mascote.style.transform='scale(1) rotate(0deg)',500);});
+
+    // --- Timer Pomodoro ---
+    let timerInterval=null,remaining=25*60;
+    function format(t){const m=Math.floor(t/60).toString().padStart(2,'0');const s=Math.floor(t%60).toString().padStart(2,'0');return `${m}:${s}`}
+    function startTimer(sec){remaining=sec;clearInterval(timerInterval);$('timer').textContent=format(remaining);timerInterval=setInterval(()=>{remaining--;$('timer').textContent=format(remaining);if(remaining<=0){clearInterval(timerInterval);alert('Tempo encerrado!');}},1000);}
+    $('startPom').addEventListener('click',()=>startTimer(25*60));$('shortBreak').addEventListener('click',()=>startTimer(5*60));$('longBreak').addEventListener('click',()=>startTimer(15*60));$('stopPom').addEventListener('click',()=>{clearInterval(timerInterval);$('timer').textContent='25:00';});
   </script>
 </body>
 </html>
+
 
 
